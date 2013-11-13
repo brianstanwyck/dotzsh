@@ -17,10 +17,26 @@ function +vi-git-status() {
 
 function prompt_minimal_precmd {
   vcs_info
+  GIT_COLOR=`git_indicator`
+}
+
+function current_branch {
+  echo `git rev-parse --abbrev-ref HEAD`
+}
+
+function git_indicator {
+  if [ -d "./.git" ]; then
+    if [ -z "`git status --porcelain`" ]; then
+      echo "%F{green}($(current_branch))%f"
+    else
+      echo "%F{red}($(current_branch))%f"
+    fi
+  fi
 }
 
 function prompt_minimal_setup {
   setopt LOCAL_OPTIONS
+  setopt PROMPT_SUBST
   unsetopt XTRACE KSH_ARRAYS
   prompt_opts=(cr percent subst)
 
@@ -29,16 +45,7 @@ function prompt_minimal_setup {
 
   add-zsh-hook precmd prompt_minimal_precmd
 
-  zstyle ':vcs_info:*' enable bzr git hg svn
-  zstyle ':vcs_info:*' check-for-changes true
-  zstyle ':vcs_info:*' stagedstr '%F{green}●%f'
-  zstyle ':vcs_info:*' unstagedstr '%F{yellow}●%f'
-  zstyle ':vcs_info:*' formats ' - [%b%c%u]'
-  zstyle ':vcs_info:*' actionformats " - [%b%c%u|%F{cyan}%a%f]"
-  zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b|%F{cyan}%r%f'
-  zstyle ':vcs_info:git*+set-message:*' hooks git-status
-
-  PROMPT='%2~${vcs_info_msg_0_} » '
+  PROMPT='(%1~) $(git_indicator) » '
 }
 
 prompt_minimal_setup "$@"
