@@ -27,9 +27,9 @@ function current_branch {
 function git_indicator {
   if [ -d "./.git" ]; then
     if [ -z "`git status --porcelain`" ]; then
-      echo "%F{green}($(current_branch))%f"
+      echo "%F{green}($(current_branch))%f "
     else
-      echo "%F{red}($(current_branch))%f"
+      echo "%F{red}($(current_branch))%f "
     fi
   fi
 }
@@ -45,7 +45,7 @@ function prompt_minimal_setup {
 
   add-zsh-hook precmd prompt_minimal_precmd
 
-  PROMPT='(%1~) $(git_indicator) » '
+  PROMPT='(%1~) $(git_indicator)» '
 }
 
 prompt_minimal_setup "$@"
