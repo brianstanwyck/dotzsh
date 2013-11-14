@@ -52,7 +52,7 @@ alias mv="${aliases[mv]:-mv} -i"
 alias p='${(z)PAGER}'
 alias po='popd'
 alias pu='pushd'
-alias rm="${aliases[rm]:-rm} -i"
+alias rm="${aliases[rm]:-rm}"
 alias type='type -a'
 
 alias l='ls -1A'         # Lists in one column, hidden files.
