@@ -8,13 +8,6 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
-function +vi-git-status() {
-  # Untracked files.
-  if [[ -n $(git ls-files --other --exclude-standard 2> /dev/null) ]]; then
-    hook_com[unstaged]='%F{red}●%f'
-  fi
-}
-
 function prompt_minimal_precmd {
   vcs_info
   GIT_COLOR=`git_indicator`
@@ -34,6 +27,10 @@ function git_indicator {
   fi
 }
 
+function ruby_version {
+  ruby -v | awk '{print $2}' | egrep -o --color=never '^[^p]+'
+}
+
 function prompt_minimal_setup {
   setopt LOCAL_OPTIONS
   setopt PROMPT_SUBST
@@ -45,7 +42,7 @@ function prompt_minimal_setup {
 
   add-zsh-hook precmd prompt_minimal_precmd
 
-  PROMPT='(%1~) $(git_indicator)» '
+  PROMPT='(%1~) $(git_indicator)($(ruby_version)) » '
 }
 
 prompt_minimal_setup "$@"
