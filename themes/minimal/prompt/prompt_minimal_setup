@@ -42,7 +42,7 @@ function prompt_minimal_setup {
 
   add-zsh-hook precmd prompt_minimal_precmd
 
-  PROMPT='(%1~) $(git_indicator)($(ruby_version)) » '
+  PROMPT='(%1~) ($(ruby_version)) $(git_indicator)» '
 }
 
 prompt_minimal_setup "$@"
