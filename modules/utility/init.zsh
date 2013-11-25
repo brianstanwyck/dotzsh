@@ -41,57 +41,11 @@ alias locate='noglob locate'
 alias rake='noglob rake'
 
 # Define general aliases.
-alias _='sudo'
-alias __='sudo -s'
-alias b='${(z)BROWSER}'
 alias cp="${aliases[cp]:-cp} -i"
-alias e='${(z)EDITOR}'
 alias ln="${aliases[ln]:-ln} -i"
 alias mkdir="${aliases[mkdir]:-mkdir} -p"
 alias mv="${aliases[mv]:-mv} -i"
-alias p='${(z)PAGER}'
-alias po='popd'
-alias pu='pushd'
 alias rm="${aliases[rm]:-rm}"
-alias type='type -a'
-
-alias l='ls -1A'         # Lists in one column, hidden files.
-alias ll='ls -lh'        # Lists human readable sizes.
-alias lr='ll -R'         # Lists human readable sizes, recursively.
-alias la='ll -A'         # Lists human readable sizes, hidden files.
-alias lm='la | "$PAGER"' # Lists human readable sizes, hidden files through pager.
-alias lx='ll -XB'        # Lists sorted by extension (GNU only).
-alias lk='ll -Sr'        # Lists sorted by size, largest last.
-alias lt='ll -tr'        # Lists sorted by date, most recent last.
-alias lc='lt -c'         # Lists sorted by date, most recent last, shows change time.
-alias lu='lt -u'         # Lists sorted by date, most recent last, shows access time.
-alias sl='ls'            # I often screw this up.
-
-# Mac OS X Everywhere
-if [[ "$OSTYPE" == darwin* ]]; then
-  alias o='open'
-  alias get='curl --continue-at - --location --progress-bar --remote-name --remote-time'
-else
-  alias o='xdg-open'
-  alias get='wget --continue --progress=bar --timestamping'
-
-  if (( $+commands[xclip] )); then
-    alias pbcopy='xclip -selection clipboard -in'
-    alias pbpaste='xclip -selection clipboard -out'
-  fi
-
-  if (( $+commands[xsel] )); then
-    alias pbcopy='xsel --clipboard --input'
-    alias pbpaste='xsel --clipboard --output'
-  fi
-fi
-
-alias pbc='pbcopy'
-alias pbp='pbpaste'
-
-# Resource Usage
-alias df='df -kh'
-alias du='du -kh'
 
 if (( $+commands[htop] )); then
   alias top=htop
@@ -110,10 +64,6 @@ alias -g P='2>&1 | $PAGER'
 alias -g L='| less'
 alias -g M='| most'
 alias -g C='| wc -l'
-
-# Quick exit
-alias x="exit"
-alias q="exit"
 
 ### Functions
 
