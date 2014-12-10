@@ -95,7 +95,8 @@ fi
 
 export PATH="/Users/bstanwyck/.rbenv/shims:/Users/bstanwyck/.rbenv/bin:$PATH"
 export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
-export PATH="./.gems/bin:$PATH"
 export GOPATH="$HOME/Documents/go"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="$HOME/.cabal/bin:$PATH"
+export PATH="$HOME/Library/Haskell/bin:$PATH"
+export PATH="./.cabal-sandbox/bin:$PATH"

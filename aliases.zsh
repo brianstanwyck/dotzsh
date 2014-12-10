@@ -1,6 +1,5 @@
 alias vim="mvim -v"
 alias gd="git diff --cached"
 alias rspec="bundle exec rspec"
-alias boom="git pull --rebase && rspec && git push && cap deploy"
 alias be="bundle exec"
-alias migrate="rake db:migrate db:test:prepare"
+alias migrate="bundle exec rake db:migrate db:test:prepare"

@@ -14,12 +14,12 @@ function prompt_minimal_precmd {
 }
 
 function current_branch {
-  echo `git rev-parse --abbrev-ref HEAD`
+  echo `git rev-parse --abbrev-ref HEAD 2>/dev/null`
 }
 
 function git_indicator {
   if [ -d "./.git" ]; then
-    if [ -z "`git status --porcelain`" ]; then
+    if [ -z "`git status --porcelain 2>/dev/null`" ]; then
       echo "%F{green}($(current_branch))%f "
     else
       echo "%F{red}($(current_branch))%f "
