@@ -98,7 +98,6 @@ export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
 export GOPATH="$HOME/Documents/go"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="$HOME/Library/Haskell/bin:$PATH"
-export PATH="$HOME/Library/Haskell/bin:$PATH"
 export PATH="./.cabal-sandbox/bin:$PATH"
 export PATH="$HOME/.cabal/bin:$PATH"
 
