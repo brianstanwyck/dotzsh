@@ -93,14 +93,7 @@ if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER='open'
 fi
 
-export PATH="/Users/bstanwyck/.rbenv/shims:/Users/bstanwyck/.rbenv/bin:$PATH"
-export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
-export GOPATH="$HOME/Documents/go"
-export PATH="$GOPATH/bin:$PATH"
-export PATH="$HOME/Library/Haskell/bin:$PATH"
-export PATH="./.cabal-sandbox/bin:$PATH"
-export PATH="$HOME/.cabal/bin:$PATH"
-
+source $DOTZSH/path.zsh
 source $DOTZSH/exports.zsh
 
 if [ -z "$DOCKER_HOST" ]; then

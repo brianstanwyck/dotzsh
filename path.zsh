@@ -1,0 +1,5 @@
+export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
+export PATH="/Applications/Postgres.app/Contents/Versions/9.4/bin:$PATH"
+export PATH="$HOME/Library/Haskell/bin:$PATH"
+export PATH="./.cabal-sandbox/bin:$PATH"
+export PATH="$HOME/.cabal/bin:$PATH"
